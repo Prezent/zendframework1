@@ -520,7 +520,7 @@ class Zend_Locale_Format
 
         $regexs = Zend_Locale_Format::_getRegexForType('decimalnumber', $options);
         $regexs = array_merge($regexs, Zend_Locale_Format::_getRegexForType('scientificnumber', $options));
-        if (!empty($input) && ($input[0] == $symbols['decimal'])) {
+        if (!empty($input) && (substr($input, 0, 1) === $symbols['decimal'])) {
             $input = 0 . $input;
         }
         foreach ($regexs as $regex) {
