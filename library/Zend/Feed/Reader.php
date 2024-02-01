@@ -341,8 +341,8 @@ class Zend_Feed_Reader
     {
         $dom = new DOMDocument;
         try {
-            $dom = Zend_Xml_Security::scan($string, $dom);        
-        } catch (Zend_Xml_Exception $e) {    
+            $dom = Zend_Xml_Security::scan($string, $dom);
+        } catch (Zend_Xml_Exception $e) {
             // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception(
                 $e->getMessage()
@@ -416,10 +416,10 @@ class Zend_Feed_Reader
         }
         $responseHtml = $response->getBody();
         $libxml_errflag = libxml_use_internal_errors(true);
-        $oldValue = libxml_disable_entity_loader(true);
+//        $oldValue = libxml_disable_entity_loader(true);
         $dom = new DOMDocument;
         $status = $dom->loadHTML($responseHtml);
-        libxml_disable_entity_loader($oldValue);
+//        libxml_disable_entity_loader($oldValue);
         libxml_use_internal_errors($libxml_errflag);
         if (!$status) {
             // Build error message
