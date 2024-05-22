@@ -456,7 +456,7 @@ class Zend_Feed_Reader
         } elseif(is_string($feed) && !empty($feed)) {
             @ini_set('track_errors', 1);
             if (!Zend_Xml_Security::isPhpFpm()) {
-                $oldValue = libxml_disable_entity_loader(true);
+//                $oldValue = libxml_disable_entity_loader(true);
             }
             $dom = new DOMDocument;
             try {
@@ -468,7 +468,7 @@ class Zend_Feed_Reader
                 );
             }
             if (!Zend_Xml_Security::isPhpFpm()) {
-                libxml_disable_entity_loader($oldValue);
+//                libxml_disable_entity_loader($oldValue);
             }
             @ini_restore('track_errors');
             if (!$dom) {
